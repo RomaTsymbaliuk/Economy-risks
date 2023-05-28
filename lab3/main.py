@@ -14,12 +14,15 @@ class Risk_Class:
         self.matrix_risks = [[round(self.probability_influence_values[column] * self.probability_incedent_values[row] * self.CO2_emissions * 0.01 * 0.01, 2) for column in range(len(self.probability_influence_values))] for row in range(len(self.probability_incedent_values))]
 
     def print_matrix_risks(self):
+        string = "Print matrix risks"
+        print(f"{string :^60}")
         for row in range(len(self.probability_incedent_values)):
-            print('Probability : ',self.probability_incedent_values[row], end=" ")
+            string = str(self.probability_incedent_values[row])
+            print('Probability : ', end="")
+            print(f'{string :^5}', end=" ")
             for col in range(len(self.probability_influence_values)):
-                print(self.matrix_risks[row][col], end=" ")
+                print(f'{str(self.matrix_risks[row][col]) :^10}', end=" ")
             print("")
-
 
 risk = Risk_Class(23259)
 risk.calculate_matrix_risks()
